@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 01:14:52 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/01/14 01:14:53 by hel-moue         ###   ########.fr       */
+/*   Created: 2024/01/25 21:05:06 by hel-moue          #+#    #+#             */
+/*   Updated: 2024/01/25 21:05:07 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
 
-#include "PhoneBook.hpp"
-
-int main()
+Zombie* newZombie( std::string name )
 {
-    PhoneBook phonebook;
-    phonebook.Start();
+	return (new Zombie(name));
 }

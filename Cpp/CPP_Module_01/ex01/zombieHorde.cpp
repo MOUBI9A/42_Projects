@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 01:14:52 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/01/14 01:14:53 by hel-moue         ###   ########.fr       */
+/*   Created: 2024/01/28 20:10:25 by hel-moue          #+#    #+#             */
+/*   Updated: 2024/01/28 20:10:26 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
 
-#include "PhoneBook.hpp"
-
-int main()
+Zombie* zombieHorde( int N, std::string name )
 {
-    PhoneBook phonebook;
-    phonebook.Start();
+	int i;
+	Zombie* zombies = new Zombie[N];
+
+	i = 0;
+	while(i < N)
+	{
+		zombies[i].setName(name);
+		i++;
+	}
+	return (zombies);
 }

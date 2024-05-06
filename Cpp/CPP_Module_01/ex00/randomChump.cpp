@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 01:14:52 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/01/14 01:14:53 by hel-moue         ###   ########.fr       */
+/*   Created: 2024/01/25 21:05:09 by hel-moue          #+#    #+#             */
+/*   Updated: 2024/01/25 21:05:10 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
 
-#include "PhoneBook.hpp"
-
-int main()
+void randomChump( std::string name )
 {
-    PhoneBook phonebook;
-    phonebook.Start();
+	Zombie new_zombie(name);
+	new_zombie.announce();
 }

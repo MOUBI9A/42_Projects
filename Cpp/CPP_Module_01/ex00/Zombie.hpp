@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 01:14:52 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/01/14 01:14:53 by hel-moue         ###   ########.fr       */
+/*   Created: 2024/01/25 21:05:15 by hel-moue          #+#    #+#             */
+/*   Updated: 2024/01/25 21:05:16 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIE_HPP
+#define	ZOMBIE_HPP
 
-#include "PhoneBook.hpp"
+#include <iostream>
 
-int main()
+class Zombie
 {
-    PhoneBook phonebook;
-    phonebook.Start();
-}
+	private:
+		std::string zmbname;
+	public :
+		Zombie( std::string name );
+		~Zombie();
+		void announce (void);
+};
+
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
+
+#endif

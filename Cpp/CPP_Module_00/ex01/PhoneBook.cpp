@@ -6,7 +6,7 @@
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 01:14:55 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/01/14 19:30:06 by hel-moue         ###   ########.fr       */
+/*   Updated: 2024/01/28 16:25:20 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void PhoneBook::PRINT_CONTACTS()
         std::cout << std::setw(10) << Get_10(Contacts[i].get_last_name()) << "|";
         std::cout << std::setw(10) << Get_10(Contacts[i].get_nick_name()) << "|\n";
     }
-	std::cout << " ___________________________________________ \n";
+	std::cout << "|___________________________________________|\n";
 }
 
 void PhoneBook::PRINT_CONTACT(std::string index)

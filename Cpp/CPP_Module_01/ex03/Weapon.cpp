@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 01:14:52 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/01/14 01:14:53 by hel-moue         ###   ########.fr       */
+/*   Created: 2024/01/28 20:09:57 by hel-moue          #+#    #+#             */
+/*   Updated: 2024/01/28 20:09:58 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Weapon.hpp"
 
-#include "PhoneBook.hpp"
-
-int main()
+Weapon::Weapon(std::string t_type)
 {
-    PhoneBook phonebook;
-    phonebook.Start();
+	Weapon::setType(t_type);
+	Weapon::setDamage(3);
+}
+Weapon::Weapon()
+{
+	setType("Your Hands");
+	setDamage(1);
+}
+const std::string&  Weapon::getType()
+{
+	return (type);
+}
+void  Weapon::setType(std::string value)
+{
+	type = value;
+}
+int Weapon::getDamage()
+{
+	return (damage);
+}
+void Weapon::setDamage(int value)
+{
+	damage = value;
 }
