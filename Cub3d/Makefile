@@ -2,7 +2,7 @@
 # Compiler and flags
 CC = gcc
 CFLAGS = 
-FILE = dd.cub
+FILE = map.cub
 # Source files and object files
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)

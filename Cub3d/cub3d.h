@@ -49,11 +49,5 @@ typedef struct s_map
 
 
 
-typedef struct t_player 
-{
-	// char			**map;
-	double			player_x;
-	double			player_y;
-}t_player;
 
 #endif

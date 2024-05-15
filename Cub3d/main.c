@@ -512,6 +512,8 @@ void check_valid_map(char **map, int player_x, int player_y, int map_size)
             {
                 if (i == 0 || i == map_size - 1 || j == 0 || j == ft_strlen(map[i]) - 1)
                     print_error("Map not closed\n", 1);
+                if (map[i - 1][j] == NULL || map[i + 1][j] == NULL || map[i][j - 1] == NULL || map[i][j + 1] == NULL)
+                    print_error("Map not closed\n", 1);
                 if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || map[i][j - 1] == ' ' || map[i][j + 1] == ' ')
                     print_error("Map not closed\n", 1);
             }
