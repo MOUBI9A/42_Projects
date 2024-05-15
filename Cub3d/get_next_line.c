@@ -6,7 +6,7 @@
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:52:53 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/01/14 04:18:55 by hel-moue         ###   ########.fr       */
+/*   Updated: 2024/05/15 22:07:19 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*save_fonction(char *all)
 	while (all[len])
 		save[j++] = all[len++];
 	free(all);
-	save[j] = '\0';    
+	save[j] = '\0';
 	return (save);
 }
 
@@ -106,4 +106,3 @@ char	*get_next_line(int fd)
 	save = save_fonction(save);
 	return (buffer);
 }
-
