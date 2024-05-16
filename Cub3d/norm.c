@@ -83,5 +83,9 @@ void	check_ceiling(t_map **data, char *str)
 			print_error("RGB value must be between 0 and 255\n", 1);
 		j++;
 	}
+	i = 0;
+	while (rgb[i])
+		free(rgb[i++]);
+	free(rgb);
 	free(str2);
 }

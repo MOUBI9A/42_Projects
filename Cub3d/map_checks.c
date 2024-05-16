@@ -82,6 +82,10 @@ void	check_floor(t_map **data, char *str)
 		if ((*data)->floor_rgb[i] < 0 || (*data)->floor_rgb[i] > 255)
 			print_error("RGB value must be between 0 and 255\n", 1);
 	}
+	i = -1;
+	while (rgb[++i])
+		free(rgb[i]);
+	free(rgb);
 	free(str2);
 }
 
