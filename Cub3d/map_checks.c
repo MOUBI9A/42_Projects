@@ -6,7 +6,7 @@
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:21:22 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/05/15 22:55:01 by hel-moue         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:01:47 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	check_floor(t_map **data, char *str)
 		if ((*data)->floor_rgb[i] < 0 || (*data)->floor_rgb[i] > 255)
 			print_error("RGB value must be between 0 and 255\n", 1);
 	}
+	free(str2);
 }
 
 void	player_check(t_map *data)
@@ -102,11 +103,14 @@ void	player_check(t_map *data)
 					print_error("Multiple player\n", 1);
 				data->player_x = i;
 				data->player_y = j;
+				data->player_dir = data->map[i][j];
 			}
 			else if (data->map[i][j] != '1' && data->map[i][j] != '0'
 				&& data->map[i][j] != ' ' && data->map[i][j] != '\n'
 				&& data->map[i][j] != 13)
-				print_error("Invalid character in map\n", 1);
+				{
+					print_error("Invalid character in map\n", 1);
+				}
 		}
 	}
 	if (data->player_x == -1 || data->player_y == -1)
@@ -118,5 +122,6 @@ void	map_check(t_map *data)
 	init_struct(&data);
 	file_to_arr(&data);
 	player_check(data);
+	// pause();
 	floodfill_check(data->map, data->player_x, data->player_y, data->map_size);
 }

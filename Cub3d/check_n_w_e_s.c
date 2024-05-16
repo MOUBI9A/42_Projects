@@ -6,7 +6,7 @@
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:37:16 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/05/15 21:48:42 by hel-moue         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:57:34 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	check_we(t_map **data, char *str)
 		print_error("WE path already defined\n", 1);
 	(*data)->we = ft_strtrim(str2, " \t");
 	check_th((*data)->we);
-	printf("WE path checked\n");
-	printf("==%s\n", (*data)->we);
 }
 
 void	check_ea(t_map **data, char *str)

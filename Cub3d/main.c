@@ -31,6 +31,7 @@ int	check_path(char *path)
 	return (1);
 }
 
+
 void	first_check(int argc, char **argv, t_map *data)
 {
 	data->file_path = argv[1];
@@ -66,8 +67,20 @@ int	main(int argc, char **argv)
 	{
 		first_check(argc, argv, &data);
 		map_check(&data);
+		// free_unused(&data);
+		print_all(&data);
+		free_all(&data);
 	}
 	else
 		print_error("the programme he need just the map \n", 1);
+	while(1);
 	return (0);
 }
+
+// int main(int ac, char **av)
+// {
+// 	ft_main(ac,av);
+// 	while(1);
+// 	return 0;
+
+// }

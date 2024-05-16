@@ -6,7 +6,7 @@
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:29:08 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/05/15 22:11:11 by hel-moue         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:57:13 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	floodfill_check(char **map, int p_x, int p_y, int map_size)
 	}
 	flood_fill(mapcpy, p_x, p_y, map_size);
 	check_valid_map(mapcpy, p_x, p_y, map_size);
+	i = 0;
 	while (i < map_size)
 	{
 		free(mapcpy[i]);
 		i++;
 	}
 	free(mapcpy);
-	printf("Flood fill DONE\n");
 }
 
 void	check_rgb(char **rgb, t_map **data, int *i)
@@ -83,4 +83,5 @@ void	check_ceiling(t_map **data, char *str)
 			print_error("RGB value must be between 0 and 255\n", 1);
 		j++;
 	}
+	free(str2);
 }

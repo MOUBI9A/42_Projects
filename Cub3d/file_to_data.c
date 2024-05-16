@@ -6,7 +6,7 @@
 /*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 17:06:00 by hel-moue          #+#    #+#             */
-/*   Updated: 2024/05/15 21:22:20 by hel-moue         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:55:04 by hel-moue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ void	file_to_arr(t_map **data)
 		else if (str[0] == '\n' && (*data)->map_exist == true)
 			(*data)->map_finsh = true;
 		i++;
+		free(str);
 	}
-	free(str);
 	close((*data)->fd_file);
 	return ;
 }

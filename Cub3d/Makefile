@@ -15,7 +15,7 @@ all: $(TARGET)
 
 # Rule to build the executable
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@ #-g -fsanitize=address
 		@echo "If you want to run the program tape x if no tape n"
 	@read -p ">> " answer; \
 	if [ $$answer = "x" ]; then \

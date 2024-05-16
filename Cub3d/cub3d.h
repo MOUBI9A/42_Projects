@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hel-moue <hel-moue@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 12:56:19 by hel-moue          #+#    #+#             */
+/*   Updated: 2024/05/16 12:56:19 by hel-moue         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -29,24 +41,24 @@ typedef struct s_map
 	char	**data_filtered;
 	int 	data_size;
 
-	char	**map;
+	char	**map;//
 	int		map_size;
 	bool	map_exist;
 	bool	map_finsh;
 	
-	int		player_x;
-	int		player_y;
+	int		player_x;//
+	int		player_y;//
+	char 	player_dir;//
 
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
+	char	*no;//
+	char	*so;//
+	char	*we;//
+	char	*ea;//
 
-	int 	*floor_rgb;
-	int		*ceiling_rgb;
+	int 	*floor_rgb;//
+	int		*ceiling_rgb;//
 
 }t_map;
-
 
 void	init_struct(t_map **data);
 void	file_to_arr(t_map **data);
@@ -76,12 +88,6 @@ void	player_check(t_map *data);
 void	flood_fill(char **map, int x, int y, int map_size);
 void	map_check(t_map *data);
 void	check_ceiling(t_map **data, char *str);
-
-
-
-
+void	print_all(t_map *data);
+void	free_all(t_map *data);
 #endif
-// custom error message that I created to help me debug my code.
-// [ERROR 7] is a error that means the malloc failed.
-// [ERROR 15] is a error that means the Map is invalid.
-// [ERROR 16] is a error that means the Map is invalid.
