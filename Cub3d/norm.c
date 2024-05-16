@@ -26,6 +26,8 @@ void	flood_fill(char **map, int player_x, int player_y, int map_size)
 	flood_fill(map, player_x, player_y - 1, map_size);
 }
 
+
+
 void	floodfill_check(char **map, int p_x, int p_y, int map_size)
 {
 	char	**mapcpy;

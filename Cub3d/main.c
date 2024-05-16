@@ -12,7 +12,8 @@
 
 #include "cub3d.h"
 
-void	print_error(char *str, int ext)
+void	
+print_error(char *str, int ext)
 {
 	printf("\x1b[31mError\n\x1b[0m%s\n", str);
 	exit(ext);
@@ -67,20 +68,11 @@ int	main(int argc, char **argv)
 	{
 		first_check(argc, argv, &data);
 		map_check(&data);
-		// free_unused(&data);
 		print_all(&data);
 		free_all(&data);
 	}
 	else
 		print_error("the programme he need just the map \n", 1);
-	while(1);
 	return (0);
 }
 
-// int main(int ac, char **av)
-// {
-// 	ft_main(ac,av);
-// 	while(1);
-// 	return 0;
-
-// }

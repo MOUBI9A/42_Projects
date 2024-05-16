@@ -28,6 +28,7 @@ void	init_struct(t_map **data)
 	(*data)->map_finsh = false;
 	(*data)->player_x = -1;
 	(*data)->player_y = -1;
+	(*data)->player_dir = 0;
 }
 
 int	data_count(int fd)
