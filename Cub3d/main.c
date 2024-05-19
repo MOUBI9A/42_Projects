@@ -65,13 +65,12 @@ void	first_check(char **argv, t_map *data)
 int	main(int argc, char **argv)
 {
 	t_map	data;
-	char *dd;
 
 	if (argc == 2)
 	{
 		first_check(argv, &data);
 		map_check(&data);
-		// print_all(&data);
+		print_all(&data);
 		free_all(&data);
 	}
 	else
