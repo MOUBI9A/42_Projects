@@ -112,6 +112,6 @@ char	*ft_strtrim(char *s1, char *set)
 		k++;
 	}
 	str[k] = '\0';
-	free(s1);
+	// free(s1);
 	return (str);
 }

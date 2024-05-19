@@ -1,7 +1,7 @@
 
 # Compiler and flags
 CC = gcc
-CFLAGS = 
+CFLAGS	:= -Wextra -Wall -Werror -g -fsanitize=address
 FILE = map.cub
 # Source files and object files
 SRCS = $(wildcard *.c)

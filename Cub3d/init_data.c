@@ -45,7 +45,7 @@ int	data_count(int fd)
 		free(line);
 	}
 	if (count == 0)
-		print_error("Empty file\n", 1);
+		print_error("Empty file\n", 1, NULL);
 	close(fd);
 	return (count);
 }
@@ -58,7 +58,7 @@ char	**alloc_data(int size)
 	i = 0;
 	data = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!data)
-		print_error("Malloc failed [ERROR 7]\n", 1);
+		print_error("Malloc failed [ERROR 7]\n", 1, NULL);
 	while (i < size)
 	{
 		data[i] = NULL;

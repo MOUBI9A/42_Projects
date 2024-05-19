@@ -20,7 +20,7 @@ void	check_line_one(char *str)
 		&& str[0] != '1' && str[0] != '0' 
 		&& str[0] != '\0' && str[0] != '\n' 
 		&& str[0] != 13)
-		print_error("Invalid Map [ERROR 15]\n", 1);
+		print_error("Invalid Map [ERROR 15]\n", 1, NULL);
 }
 
 int	check_line_two(char *str)
@@ -66,7 +66,6 @@ bool	data_check(t_map **data)
 
 void	file_to_arr(t_map **data)
 {
-	char	*line;
 	char	*str;
 	int		i;
 
@@ -90,12 +89,12 @@ void	file_to_arr(t_map **data)
 					(*data)->map_exist = true;
 				}
 				if ((*data)->map_finsh == true)
-					print_error("Map not at the end\n", 1);
+					print_error("Map not at the end\n", 1, *data);
 				(*data)->map[(*data)->map_size] = ft_strdup((*data)->file_data[i]);
 				(*data)->map_size++;
 			}
 			else
-				print_error("Invalid Map [ERROR 16]", 1);
+				print_error("Invalid Map [ERROR 16]", 1, *data);
 		}
 		else if (str[0] == '\n' && (*data)->map_exist == true)
 			(*data)->map_finsh = true;

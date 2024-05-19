@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	check_valid_map(char **map, int player_x, int player_y, int map_size)
+void	check_valid_map(char **map, t_map *data)
 {
 	int	i;
 	int	j;
@@ -25,15 +25,18 @@ void	check_valid_map(char **map, int player_x, int player_y, int map_size)
 		{
 			if (map[i][j] == '.')
 			{
-				if (i == 0 || i == map_size - 1 || j == 0 
+				if (i == 0 || i == data->map_size - 1 || j == 0 
 					|| j == ft_strlen(map[i]) - 1)
-					print_error("Map not closed\n", 1);
+					print_error("Map not closed\n", 1, data);
 				if (map[i - 1][j] == 0 || map[i + 1][j] == 0 
 					|| map[i][j - 1] == 0 || map[i][j + 1] == 0)
-					print_error("Map not closed\n", 1);
+					print_error("Map not closed\n", 1, data);
 				if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' 
 					|| map[i][j - 1] == ' ' || map[i][j + 1] == ' ')
-					print_error("Map not closed\n", 1);
+					print_error("Map not closed\n", 1, data);
+				if (map[i - 1][j] == '\n' || map[i + 1][j] == '\n' 
+					|| map[i][j - 1] == '\n' || map[i][j + 1] == '\n')
+					print_error("Map not closed\n", 1, data);
 			}
 			j++;
 		}
@@ -65,22 +68,22 @@ void	check_floor(t_map **data, char *str)
 
 	i = -1;
 	if ((*data)->floor_rgb)
-		print_error("Floor color already defined\n", 1);
+		print_error("Floor color already defined\n", 1, *data);
 	str2 = ft_strdup(str + 2);
 	str2 = ft_strtrim(str2, " \t");
 	rgb = ft_split(str2, ',');
 	while (rgb[++i])
 		if (is_digit_str(rgb[i]) == 0)
-			print_error("Floor color must be in RGB format (F digit)\n", 1);
+			print_error("Floor color must be in RGB format (F digit)\n", 1, *data);
 	if (i != 3)
-		print_error("Floor color must be in RGB format\n", 1);
+		print_error("Floor color must be in RGB format\n", 1, *data);
 	i = -1;
 	(*data)->floor_rgb = (int *)ft_calloc(sizeof(int), 3);
 	while (++i < 3)
 	{
 		(*data)->floor_rgb[i] = ft_atoi(rgb[i]);
 		if ((*data)->floor_rgb[i] < 0 || (*data)->floor_rgb[i] > 255)
-			print_error("RGB value must be between 0 and 255\n", 1);
+			print_error("RGB value must be between 0 and 255\n", 1, *data);
 	}
 	i = -1;
 	while (rgb[++i])
@@ -104,7 +107,7 @@ void	player_check(t_map *data)
 				|| data->map[i][j] == 'W' || data->map[i][j] == 'E')
 			{
 				if (data->player_x != -1 || data->player_y != -1)
-					print_error("Multiple player\n", 1);
+					print_error("Multiple player\n", 1, data);
 				data->player_x = i;
 				data->player_y = j;
 				data->player_dir = data->map[i][j];
@@ -113,12 +116,12 @@ void	player_check(t_map *data)
 				&& data->map[i][j] != ' ' && data->map[i][j] != '\n'
 				&& data->map[i][j] != 13)
 				{
-					print_error("Invalid character in map\n", 1);
+					print_error("Invalid character in map\n", 1, data);
 				}
 		}
 	}
 	if (data->player_x == -1 || data->player_y == -1)
-		print_error("No player\n", 1);
+		print_error("No player\n", 1, NULL);
 }
 
 void	map_check(t_map *data)
@@ -126,6 +129,7 @@ void	map_check(t_map *data)
 	init_struct(&data);
 	file_to_arr(&data);
 	player_check(data);
+	floodfill_check(&data);
 	// pause();
-	floodfill_check(data->map, data->player_x, data->player_y, data->map_size);
+
 }
