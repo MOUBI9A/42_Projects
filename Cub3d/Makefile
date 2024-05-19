@@ -1,16 +1,15 @@
 
-NAME	:= CUB3D
-FILE = map.cub
+NAME := CUB3D
 CC := gcc
-CFLAGS	:= -Wextra -Wall -Werror -g -fsanitize=address
-LIBMLX	:= ../MLX42/build/libmlx42.a
+CFLAGS := -Wextra -Wall -Werror -g -fsanitize=address
+LIBMLX := ~/Desktop/tst/MLX42/build/libmlx42.a
 LIBFLAGS := -framework Cocoa -framework OpenGL -framework IOKit
-GLFWPATH := /Users/hel-moue/Desktop/old/MLX42/build/libmlx42.a
-SRC = *.c
+GLFWPATH := ~/.brew/Cellar/glfw/3.4/lib/libglfw3.a
+SRC := check_n_w_e_s.c get_next_line.c libft.c norm.c file_to_data.c get_next_line_utils.c main.c ft_split.c init_data.c map_checks.c 
 OBJ = ${SRC:%.c=%.o}
 
 $(NAME): $(OBJ)
-	$(CC) ${CFLAGS} ${LIBFLAGS} $(LIBMLX) ${GLFWPATH} -o $(NAME)
+	$(CC) $(CFLAGS) $(LIBFLAGS) $(LIBMLX) $(GLFWPATH) $(OBJ) -o $(NAME)
 	@echo "If you want to run the program tape x if no tape n"
 	@read -p ">> " answer; \
 	if [ $$answer = "x" ]; then \
