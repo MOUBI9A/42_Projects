@@ -18,6 +18,11 @@
 #  define BUFFER_SIZE 5
 # endif
 
+#define NORTH 0
+#define SOUTH 1
+#define WEST 2
+#define EAST 3
+
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
