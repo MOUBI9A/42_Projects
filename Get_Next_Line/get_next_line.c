@@ -12,6 +12,15 @@
 
 #include "get_next_line.h"
 
+/*
+** 1- read the file and store it in the buffer
+** 2- check if the buffer contains a new line
+** 3- if it does, store the line in the buffer
+** 4- store the rest of the buffer in the save
+** 5- return the buffer
+*/
+
+// the fonction that read the file and store it in the buffer
 char	*first_fonction(int fd, char *save)
 {
 	char	*buffer;
@@ -35,13 +44,14 @@ char	*first_fonction(int fd, char *save)
 	return (save);
 }
 
+// the fonction that check if the buffer contains a new line
 char	*sacond_fonction(char *save)
 {
 	char	*buffer;
 	int		len;
 
 	len = 0;
-	if (!save[len])
+	if (!save || !save[len]) 
 		return (NULL);
 	while (save[len] != '\0' && save[len] != '\n')
 		len++;
@@ -63,6 +73,7 @@ char	*sacond_fonction(char *save)
 	return (buffer);
 }
 
+// the fonction that store the rest of the buffer in the save
 char	*save_fonction(char *all)
 {
 	char	*save;
@@ -85,10 +96,11 @@ char	*save_fonction(char *all)
 	while (all[len])
 		save[j++] = all[len++];
 	free(all);
-	save[j] = '\0';    
+	save[j] = '\0'; 
 	return (save);
 }
 
+// the main fonction
 char	*get_next_line(int fd)
 {
 	static char	*save;

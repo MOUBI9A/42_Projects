@@ -1,0 +1,34 @@
+
+# Get_Next_Line
+
+## Description
+Get_Next_Line is a function that reads a file descriptor line by line. It allows you to read a line from a file descriptor, such as a text file, and store it in a string.
+## Features
+- Reads a file descriptor line by line
+- Handles multiple file descriptors simultaneously
+- Supports reading from standard input (stdin)
+
+## Usage
+To use the Get_Next_Line function, follow these steps:
+
+1. Clone the repository:
+    ```
+    git clone https://github.com/MOUBI9A/Get_Next_Line.git
+    ```
+
+2. Include the `get_next_line.h` header file in your project:
+    ```c
+    #include "get_next_line.h"
+    ```
+
+3. Call the `get_next_line` function to read a line from a file descriptor:
+    ```c
+    int get_next_line(int fd, char **line);
+    ```
+
+    The function returns 1 if a line has been read, 0 if the end of file has been reached, or -1 in case of an error.
+
+4. Remember to free the memory allocated for the line when you're done with it:
+    ```c
+    free(line);
+    ```

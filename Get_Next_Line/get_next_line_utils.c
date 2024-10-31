@@ -47,6 +47,8 @@ void	*ft_calloc(unsigned int size, unsigned int len)
 	i = 0;
 	total = size * len;
 	ret = (unsigned char *)malloc(total);
+	if (!ret)
+		return (NULL);
 	while (i < total)
 	{
 		ret[i] = '\0';
