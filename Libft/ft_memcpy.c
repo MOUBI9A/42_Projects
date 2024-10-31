@@ -12,24 +12,22 @@
 
 #include "libft.h"
 
-/*
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t	i;
-	char	*str;
-	char	*srcc;
 
-	srcc = (char *)src;
-	i = 0;
-	str = (char *)dst;
-	while (i++ < n)
-		str[i] = srcc[i];
-	dst = (void *)str;
-	return (dst);
-}
+#include <stdio.h>
+
+/*
+** ft_memcpy - Copy memory area
+** @dst: Destination memory address
+** @src: Source memory address
+** @n: Number of bytes to copy
+**
+** This function copies @n bytes from memory area @src to memory area @dst.
+** If @dst and @src overlap, behavior is undefined.
+** Returns the original value of @dst.
 */
 
-void	*ft_memcpy(void	*dst, const void *src, size_t n)
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 	char	*d;
@@ -47,3 +45,30 @@ void	*ft_memcpy(void	*dst, const void *src, size_t n)
 	}
 	return (dst);
 }
+
+
+// void	*ft_memcpy1(void *dst, const void *src, size_t n)
+// {
+// 	size_t	i;
+// 	char	*str;
+// 	char	*srcc;
+
+// 	srcc = (char *)src;
+// 	str = (char *)dst;
+// 	i = 0;
+// 	while (i++ < n)
+// 		str[i] = srcc[i];
+// 	dst = (void *)str;
+// 	return (dst);
+// }
+
+// int	main(void)
+// {
+// 	char src[] = "Hello, world!";
+// 	char dst[20];
+
+// 	ft_memcpy(dst, src, sizeof(src));
+// 	printf("Copied string: %s\n", dst);// Should print "Hello, world!"
+
+// 	return (0);
+// }

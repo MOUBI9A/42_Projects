@@ -13,10 +13,15 @@
 #include "libft.h"
 #include <stdio.h>
 
-static	int	lenalloc(const char *str, char c)
+#include "libft.h"
+#include <stdio.h>
+
+// Function to calculate the number of substrings to allocate memory
+// based on the delimiter
+static int lenalloc(const char *str, char c)
 {
-	int	i;
-	int	perm;
+	int i;
+	int perm;
 
 	i = 0;
 	perm = 0;
@@ -31,34 +36,72 @@ static	int	lenalloc(const char *str, char c)
 			perm = 0;
 		str++;
 	}
-	return (i);
+	return i;
 }
 
-char	**ft_split(char const *s, char c)
+
+// Function to split a string into substrings based on a delimiter
+// and store them in an array of strings
+// The function returns the array of strings or NULL if the allocation fails
+char **ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		indx;
-	char	**split;
+    int i;
+    int j;
+    int indx;
+    char **split;
 
-	if (!s)
-		return (NULL);
-	i = (int)lenalloc(s, c) + 1;
-	split = (char **)ft_calloc(i, sizeof(char *));
-	if (!split)
-		return (NULL);
-	i = -1;
-	j = 0;
-	indx = -1;
-	while (++i <= (int)ft_strlen(s))
-	{
-		if (s[i] != c && indx < 0)
-			indx = i;
-		else if ((s[i] == c || !s[i]) && indx > -1)
-		{
-			split[j++] = (char *)ft_substr(s, indx, i - indx);
-			indx = -1;
-		}
-	}
-	return (split);
+    if (!s)
+        return NULL;
+
+    // Calculate the number of substrings and allocate memory
+    i = lenalloc(s, c) + 1;
+    split = (char **)ft_calloc(i, sizeof(char *)); // Allocate memory and initialize to 0 with ft_calloc
+    if (!split)
+        return NULL;
+    i = -1;
+    j = 0;
+    indx = -1;
+    while (++i <= (int)ft_strlen(s)) 
+    {
+        if (s[i] != c && indx < 0) // Find the start of the substring
+            indx = i;
+        else if ((s[i] == c || !s[i]) && indx > -1) // Find the end of the substring
+        {
+            // Extract the substring and store it in the split array using ft_substr
+            split[j] = (char *)ft_substr(s, indx, i - indx); 
+            if (!split[j]) // Check if ft_substr failed
+            {
+                // Free previously allocated memory
+                while (j > 0)
+                    free(split[--j]);
+                free(split);
+                return NULL;
+            }
+            j++;
+            indx = -1;
+        }
+    }
+    return split;
 }
+
+
+// int main()
+// {
+// 	char *str = "Hello,World,Split,Test";
+// 	char **result = ft_split(str, ',');
+
+// 	if (result)
+// 	{
+// 		int i = 0;
+// 		while (result[i])
+// 		{
+// 			printf("%s\n", result[i]);
+// 			i++;
+// 		}
+// 	}
+
+// 	// Free the memory allocated for the split array
+// 	free(result);
+
+// 	return 0;
+// }

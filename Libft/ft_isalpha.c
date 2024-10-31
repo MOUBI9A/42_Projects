@@ -11,10 +11,26 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_isalpha(int c)
+// Function to check if a character is an alphabet
+int ft_isalpha(int c)
 {
+	// Check if the character is within the range of uppercase or lowercase alphabets
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+		return 1; // Return 1 if it is an alphabet
+	return 0; // Return 0 if it is not an alphabet
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	char ch;
+// 	printf("Enter a character: ");
+// 	scanf("%c", &ch);
+
+// 	if (ft_isalpha(ch))
+// 		printf("%c is an alphabet.\n", ch);
+// 	else
+// 		printf("%c is not an alphabet.\n", ch);
+
+// 	return 0;
+// }

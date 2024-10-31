@@ -14,11 +14,14 @@
 #include <stdio.h>
 #include <limits.h>
 
-static	int	nbchar(int n)
+/*
+** Function to calculate the number of characters required to represent an integer.
+** It handles negative numbers and zero separately.
+*/
+static int nbchar(int n)
 {
-	int	i;
+	int i = 0;
 
-	i = 0;
 	if (n < 0)
 	{
 		n *= -1;
@@ -34,14 +37,19 @@ static	int	nbchar(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+/*
+** Function to convert an integer to a string.
+** It allocates memory for the string and handles negative numbers separately.
+** It uses the nbchar function to calculate the number of characters required.
+** It then converts the integer to a string by taking the remainder of the number
+*/
+char *ft_itoa(int n)
 {
-	long	i;
-	char	*rest;
+	long i = nbchar(n);
+	char *rest;
 
-	i = nbchar(n);
 	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+		return (ft_strdup("-2147483648")); // Handle the minimum integer value
 	rest = (char *)malloc(i + 1);
 	if (rest == NULL)
 		return (NULL);
@@ -56,47 +64,26 @@ char	*ft_itoa(int n)
 		rest[i] = '0';
 	while (n > 0)
 	{
-		rest[i] = (n % 10) + '0';
+		// Convert using the remainder of the number divided by 10 and adding '0' to it to get the ASCII value of the digit character 
+		// example: 42 % 10 = 2 + '0' = '2' , ascii exmple: 42 % 10 = 2 + 48 (ascii value of 0) = 50(ascii value of 2)
+		rest[i] = (n % 10) + '0'; 
 		n = n / 10;
 		i--;
 	}
 	return (rest);
 }
 
+// #include <stdio.h>
+// #include <stdlib.h>
+
 // int main()
 // {
-// 	char *number = ft_itoa(-2147483648);
-// 	printf("%s\n", number);
-// 	return (0);
+// 	int num1;
+
+// 	printf("Enter a numbers: ");
+// 	scanf("%d", &num1);
+// 	char *str1 = ft_itoa(num1);
+// 	printf("Number: %d, String: %s\n", num1, str1);
+// 	free(str1);
+// 	return 0;
 // }
-
-/*
-char	*ft_itoa(int n)
-{
-	int		i;
-	long	cpy;
-	char	*rest;
-
-	cpy = (long)n;
-	i = test(cpy);
-	rest = malloc(i + 1);
-	if (rest == 0)
-		return (0);
-	if (cpy < 0)
-	{
-		rest[0] = '-';
-		cpy *= -1;
-	}
-	rest[i] = '\0';
-	i--;
-	if (cpy == 0)
-		rest[i] = '0';
-	while (cpy > 0)
-	{
-		rest[i] = (cpy % 10) + '0';
-		cpy = cpy / 10;
-	i--;
-	}
-	return (rest);
-}
-*/

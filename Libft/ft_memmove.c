@@ -12,6 +12,35 @@
 
 #include "libft.h"
 
+
+/*
+** ft_memmove: Copies 'len' bytes from 'src' to 'dst'.
+** The memory areas may overlap.
+** Returns a pointer to 'dst'.
+*/
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char	*d;
+	char	*s;
+
+	d = (char *)dst;
+	s = (char *)src;
+
+	// If 'dst' and 'src' are both NULL, return NULL.
+	if (!dst && !src)
+		return (NULL);
+
+	// If 'dst' is before 'src' in memory, use memcpy.
+	if (dst < src)
+		return (ft_memcpy(dst, src, len));
+
+	// Copy 'len' bytes from 'src' to 'dst' in reverse order.
+	while (len--)
+		d[len] = s[len];
+
+	return (dst);
+}
+
 /*
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -26,19 +55,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 */
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	char	*d;
-	char	*s;
-
-	d = (char *)dst;
-	s = (char *)src;
-	if (!dst && !src)
-		return (NULL);
-	if (dst < src)
-		return (ft_memcpy(dst, src, len));
-	while (len--)
-		d[len] = s[len];
-	return (dst);
-}

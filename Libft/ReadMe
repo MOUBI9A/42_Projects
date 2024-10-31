@@ -1,0 +1,49 @@
+# Libft - My First Own Library
+
+## Summary
+This project is about coding a C library. It will contain a lot of general-purpose functions your programs will rely upon.
+
+## Version
+16.2
+
+## Contents
+- Introduction
+- Common Instructions
+- Mandatory Part
+- Technical Considerations
+- Part 1: Libc Functions
+- Part 2: Additional Functions
+- Bonus Part
+- Submission and Peer-Evaluation
+
+## Introduction
+C programming can be very tedious when one doesn’t have access to the highly useful standard functions. This project is about understanding the way these functions work, implementing, and learning to use them. You will create your own library, which will be helpful since you will use it in your next C school assignments.
+
+## Common Instructions
+- Your project must be written in C.
+- Your project must be written in accordance with the Norm.
+- Your functions should not quit unexpectedly (segmentation fault, bus error, double free, etc).
+- All heap-allocated memory space must be properly freed when necessary.
+- If the subject requires it, you must submit a Makefile which will compile your source files to the required output with the flags -Wall, -Wextra, and -Werror.
+- Your Makefile must at least contain the rules $(NAME), all, clean, fclean, and re.
+- To turn in bonuses to your project, you must include a rule bonus to your Makefile.
+- If your project allows you to use your libft, you must copy its sources and its associated Makefile in a libft folder.
+- Submit your work to your assigned git repository.
+
+## Mandatory Part
+### Technical Considerations
+- Declaring global variables is forbidden.
+- If you need helper functions to split a more complex function, define them as static functions.
+- Place all your files at the root of your repository.
+- Turning in unused files is forbidden.
+- Every .c file must compile with the flags -Wall -Wextra -Werror.
+- You must use the command ar to create your library.
+
+## Part 1 - Libc Functions
+You must redo a set of functions from the libc. Your functions will have the same prototypes and implement the same behaviors as the originals. They must comply with the way they are defined in their man. The only difference will be their names. They will begin with the ft_ prefix.
+
+## Part 2 - Additional Functions
+In this part, you must develop a set of functions that are either not in the libc or are part of it but in a different form.
+
+## Bonus Part
+Additional functions and features that are not required but can be implemented for extra credit.

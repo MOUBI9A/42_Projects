@@ -12,16 +12,33 @@
 
 #include "libft.h"
 
+#include <unistd.h>
+
+// Function to print a string to a file descriptor
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
+	// Check if file descriptor or string is NULL
 	if (!fd || !s)
 		return ;
+	// Loop through each character of the string
 	while (s[i] != '\0')
 	{
-		ft_putchar_fd(s[i], fd);
+		// Write each character to the file descriptor
+		write(fd, &s[i], 1);
 		i++;
 	}
 }
+
+// int	main(void)
+// {
+// 	char *str = "Hello, world!";
+// 	int fd = 1; // File descriptor for stdout
+
+// 	// Test case: Print the string to stdout
+// 	ft_putstr_fd(str, fd);
+
+// 	return 0;
+// }

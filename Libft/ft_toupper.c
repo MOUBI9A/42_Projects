@@ -12,9 +12,29 @@
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+#include <stdio.h>
+
+// Function to convert lowercase characters to uppercase
+int ft_toupper(int c)
 {
-	if (c >= 97 && c <= 122)
-		c = c - 32;
-	return (c);
+	// Check if the character is a lowercase letter
+	if (c >= 'a' && c <= 'z')
+		c = c - 32; // Convert to uppercase by subtracting 32 from ASCII value
+
+	return c;
 }
+
+// int main()
+// {
+// 	int ch;
+
+// 	printf("Enter a character: ");
+// 	ch = getchar();
+
+// 	// Convert the character to uppercase
+// 	ch = ft_toupper(ch);
+
+// 	printf("Uppercase character: %c\n", ch);
+
+// 	return 0;
+// }

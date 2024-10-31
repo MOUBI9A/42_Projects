@@ -12,9 +12,26 @@
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+
+/*
+** This function converts an uppercase letter to its corresponding lowercase letter.
+** If the input character is not an uppercase letter, it remains unchanged.
+** The function returns the converted character.
+*/
+int ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 		c = c + 32;
-	return (c);
+	return c;
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	int c;
+// 	printf("Enter a character: ");
+// 	c = getchar();
+// 	printf("Original character: %c\n", c);
+// 	printf("Converted character: %c\n", ft_tolower(c));
+// 	return 0;
+// }
