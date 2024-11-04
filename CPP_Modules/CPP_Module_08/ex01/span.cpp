@@ -40,15 +40,17 @@ void Span::addNumber(int n)
 
 int Span::shortestSpan()
 {
+	int		min;
+
 	if (_v.size() < 2) 
 		throw NotEnoughNumbersException();
 	std::vector<int> v = _v; 
-	std::sort(v.begin(), v.end()); 
-	int min = INT_MAX; 
+	std::sort(v.begin(), v.end());
+	min = v.at(1) - v.at(0);
 	for (unsigned int i = 1; i < v.size(); i++)
 	{
-		if (v[i] - v[i - 1] < min)
-			min = v[i] - v[i - 1];
+		if (v.at(i) - v.at(i - 1) < min)
+			min = v.at(i) - v.at(i - 1);
 	}
 	return min;
 }
@@ -59,7 +61,5 @@ int Span::longestSpan()
 		throw NotEnoughNumbersException();
 	std::vector<int> v = _v; 
 	std::sort(v.begin(), v.end()); 
-	return v[v.size() - 1] - v[0];
+	return v.at(v.size() - 1) - v.at(0);
 }
-
-

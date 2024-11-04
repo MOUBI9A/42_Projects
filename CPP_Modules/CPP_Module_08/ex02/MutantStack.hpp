@@ -8,7 +8,7 @@ template<typename T> // the template parameter T is the type of the elements in 
 class MutantStack : public std::stack<T> {
 public:
 	// the typedefs to define the iterator types
-	typedef typename std::stack<T>::container_type::iterator iterator; 
+	typedef typename std::stack<T>::container_type::iterator iterator;
 
 	// the constructor and destructor 
 	MutantStack() : std::stack<T>() {}

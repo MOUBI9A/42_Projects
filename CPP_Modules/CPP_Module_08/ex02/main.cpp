@@ -24,5 +24,6 @@ int main(){
 		++it;
 	}
 	std::stack<int> s(mstack);
+	std::cout << "size is :"<< mstack.size() << std::endl;
 	return 0;
 }
